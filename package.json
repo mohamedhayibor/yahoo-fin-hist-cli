@@ -1,0 +1,34 @@
+{
+  "name": "yahoo-fin-hist-cli",
+  "version": "0.0.0",
+  "description": "",
+  "main": "cli.js",
+  "bin": {
+    "fin": "cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedhayibor/yahoo-fin-hist-cli.git"
+  },
+  "keywords": [
+    "yahoo",
+    "finance",
+    "historical",
+    "prices",
+    "browser",
+    "automation"
+  ],
+  "author": "Mohamed Hayibor <mohamedhayibor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohamedhayibor/yahoo-fin-hist-cli/issues"
+  },
+  "homepage": "https://github.com/mohamedhayibor/yahoo-fin-hist-cli#readme",
+  "dependencies": {
+    "meow": "^3.7.0",
+    "open": "0.0.5"
+  }
+}
