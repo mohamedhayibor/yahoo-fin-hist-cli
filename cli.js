@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 const open = require('open');
 const meow = require('meow');
+const toClipboard = require('to-clipboard');
+const cheerio = require('cheerio');
+const got = require('got');
 
 const cli = meow(`
   Usage:
@@ -8,7 +11,7 @@ const cli = meow(`
   $ fin <ticker> <date> --flag
 
   For example:
-  $ fin aapl '24-Aug-17' -d
+  $ fin aapl 24-Aug-17 -d
 
 `, {
   alias: {
@@ -46,6 +49,7 @@ if (args.length === 1) {
 let date = cli.input[1].trim();
 let dateInMilli = Date.parse(date);
 
+
 /*********************************************
  * Case: opening page with only specified date
  */
@@ -53,6 +57,7 @@ if (Object.keys(cli.flags).length == 0) {
   open(`https://finance.yahoo.com/quote/${ ticker }/history?period1=${ dateInMilli / 1000 }&period2=${ dateInMilli / 1000 }&interval=1d&filter=history&frequency=1d`);
   process.exit(1);
 }
+
 
 /*********************************************
  * Case: opening page with a 5 day range
@@ -66,6 +71,7 @@ if (cli.flags.f) {
   process.exit(1);
 }
 
+
 /*********************************************
  * Case: opening page with a 10 day range
  */
@@ -77,6 +83,7 @@ if (cli.flags.t) {
   process.exit(1);
 }
 
+
 /*********************************************
  * Case: opening page with a 30 day range
  */
@@ -86,4 +93,27 @@ if (cli.flags.m) {
   open(`https://finance.yahoo.com/quote/${ ticker }/history?period1=${ start }&period2=${ end }&interval=1d&filter=history&frequency=1d`);
 
   process.exit(1);
+}
+
+
+/*********************************************
+ * Case: copying closing price to clipboard
+ */
+if (cli.flags.c) {
+  let link = `https://finance.yahoo.com/quote/${ ticker }/history?period1=${ dateInMilli / 1000 }&period2=${ dateInMilli / 1000 }&interval=1d&filter=history&frequency=1d`;
+
+  got(link).then(res => {
+    let $ = cheerio.load( res.body );
+
+    let closingSpan = $('tr.BdT').children()['4'].children[0];
+    let closingPrice = closingSpan.children[0].data;
+
+    // copying closingPrice to clipboard
+    toClipboard.sync( closingPrice );
+
+    console.log(`
+> The closing price for ${ticker} on ${date}: ${closingPrice}
+
+It's already copied to clipboaard.`);
+  });
 }

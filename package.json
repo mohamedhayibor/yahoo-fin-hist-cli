@@ -28,7 +28,10 @@
   },
   "homepage": "https://github.com/mohamedhayibor/yahoo-fin-hist-cli#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "got": "^7.1.0",
     "meow": "^3.7.0",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "to-clipboard": "^0.4.0"
   }
 }
