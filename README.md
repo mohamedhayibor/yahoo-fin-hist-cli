@@ -9,7 +9,7 @@ $ fin aapl 24-Aug-17 -c
 
 > The closing price for AAPL on 24-Aug-17: 159.27
 
-> It's already copied to your clipboaard.
+> It's already copied to your clipboard.
 ```
 
 Possible queries:
@@ -44,12 +44,9 @@ $ npm install -g yahoo-fin-hist-cli
 
 Then you can run the `fin` command from anywhere.
 
-## Demos
-[](..gif)
-
 ### Raison D'etre
 
-"Excel-monkey" tasks are hard and emotionally taxing. Automate as much you can.
+"Excel-monkey" tasks are hard. Automate as much you can.
 
 ## License
 MIT © [Mohamed Hayibor](http://github.com/mohamedhayibor)
