@@ -1,17 +1,21 @@
 # yahoo-fin-hist-cli
 
-Automating "getting historical prices".
+Automate "getting historical prices".
 
 ## Usage
 
 Examples queries:
 
 ```sh
+  # Main use cases
+
   > fin <ticker> <date>      (opens page with open close... for that single day)
 
   > fin <ticker> <date> -c   (gets the historical `close price` and copies it to the clipboard)
 
   > fin <ticker>             (opens historical prices page of that security)
+
+  ## Extra features
 
   > fin <ticker> <date> -f   (opens page with open close... for a 5 days range)
 
@@ -26,7 +30,7 @@ Examples queries:
 If you don't have `NodeJS` already [download it](https://nodejs.org/en/download/). You'll get npm with it.
 
 ```sh
-> npm i -g yahoo-fin-hist-cli
+> npm install -g yahoo-fin-hist-cli
 ```
 
 Then you can run the `fin` command from anywhere.

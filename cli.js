@@ -1,10 +1,3 @@
-/**
- * This program automates the retrieval of
- * a ticker's historical closing price
- * by opening a new tab
- * MIT licensed <> Mohamed Hayibor
- */
-
 #!/usr/bin/env node
 const open = require('open');
 const meow = require('meow');
@@ -30,7 +23,26 @@ const cli = meow(`
 });
 
 let args = cli.input;
+
+/**
+ * In case no argument exit immediately
+ */
+if (args.length == 0) {
+  console.log("Execute `fin -h` for commands");
+  process.exit(1);
+}
+
 let ticker = cli.input[0].trim().toUpperCase();
+
+/**
+ * Simplest use case: opening historical page
+ * with no specifications.
+ */
+if (args.length === 1) {
+  open(`https://finance.yahoo.com/quote/${ ticker }/history`);
+}
+
+
 let date1 = cli.input[1].trim();
 
 let date1Mil = Date.parse(date1);
