@@ -49,7 +49,7 @@ Then you can run the `fin` command from anywhere.
 
 ### Raison D'etre
 
-"Excel-monkey" tasks are hard and emotionally taxing. Automate the task of getting historical security prices.
+"Excel-monkey" tasks are hard and emotionally taxing. Automate as much you can.
 
 ## License
 MIT © [Mohamed Hayibor](http://github.com/mohamedhayibor)
