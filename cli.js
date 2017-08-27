@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// MIT Licensed <> Mohamed Hayibor
+
 const open = require('open');
 const meow = require('meow');
 const toClipboard = require('to-clipboard');
@@ -114,6 +116,6 @@ if (cli.flags.c) {
     console.log(`
 > The closing price for ${ticker} on ${date}: ${closingPrice}
 
-It's already copied to clipboaard.`);
+It's already copied to your clipboaard.`);
   });
 }
