@@ -12,14 +12,16 @@ const cli = meow(`
 
   $ fin <ticker> <date> --flag
 
-  For example:
-  $ fin aapl 24-Aug-17 -d
+  Example: (copies aapl closing price on clipboard)
+  $ fin aapl 24-Aug-17 -c
+
+  Example: (opens yahoo finance page for date)
+  $ fin aapl 24-Aug-17
 
 `, {
   alias: {
     'v': 'version',
     'h': 'help',
-    'd': 'day',
     'c': 'copy-to-clipboard',
     'f': 'five-days',
     't': 'ten-days',
